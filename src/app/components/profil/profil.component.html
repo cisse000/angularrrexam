@@ -1,0 +1,67 @@
+<nav class="nav">
+  <a mat-button routerLink="/profil">Mon profil</a>
+  <a mat-button routerLink="/mesinscriptions">Mes inscriptions</a>
+  <a mat-raised-button color="primary" href="http://localhost:4200" class="login-btn">Se deconnecter</a>
+</nav>
+
+
+
+  <h3>Profil</h3>
+<!--  <mat-form-field appearance="outline" >-->
+<!--    <mat-label>Nom</mat-label>-->
+<!--    <input matInput type="text" formControlName="username">-->
+<!--  </mat-form-field>-->
+
+
+
+<!--/2e parti-->
+<div class="profile-form">
+  <form (ngSubmit)="onSubmit()" #profileForm="ngForm">
+
+    <section>
+    <label for="name">Nom :</label>
+    <input type="text" id="name" [(ngModel)]="user.name" name="name" required />
+    </section>
+
+    <section>
+      <label for="name">Prenom :</label>
+      <input type="text" id="prenom" [(ngModel)]="user.name" name="prenom" required />
+    </section>
+
+
+    <section>
+      <label for="name">Date de naissance :</label>
+      <input type="text" id="Date de naissance" [(ngModel)]="user.name" name="Date de naissance" required />
+    </section>
+
+
+
+    <section>
+    <label for="email">Email :</label>
+    <input type="email" id="email" [(ngModel)]="user.email" name="email" required />
+    </section>
+
+    <section>
+    <label for="phone">Téléphone :</label>
+    <input type="tel" id="phone" [(ngModel)]="user.phone" name="phone" />
+    </section>
+
+    <section>
+    <label for="avatar">Photo de Profil :</label>
+    <input type="file" id="avatar" (change)="onFileSelected($event)" />
+    </section>
+
+    <section>
+    <button type="submit" [disabled]="!profileForm.form.valid">Mettre à jour</button>
+    </section>
+
+
+    <section>
+      <a mat-raised-button href="" target="_blank">quotient familial</a>
+
+    </section>
+
+    <section> <a mat-raised-button href="" target="_blank">Modifier mon profil</a></section>
+  </form>
+</div>
+

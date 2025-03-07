@@ -1,0 +1,15 @@
+<h2>Créer un Compte</h2>
+<form [formGroup]="compteForm" (ngSubmit)="onSubmit()">
+  <label for="username">Nom d'utilisateur :</label>
+  <input id="username" type="text" formControlName="username" />
+
+  <label for="email">Email :</label>
+  <input id="email" type="text" formControlName="email" />
+
+  <label for="password">Mot de passe :</label>
+  <input id="password" type="text" formControlName="password" />
+
+
+  <button mat-stroked-button (click)="submit()"
+          [disabled]="compteForm.invalid">Login</button>
+</form>

@@ -1,0 +1,24 @@
+
+<form [formGroup]="loginForm">
+  <h3>Login</h3>
+  <mat-form-field appearance="outline" >
+    <mat-label>username</mat-label>
+    <input matInput type="text" formControlName="username">
+    @if (loginForm.get('username')?.hasError('required')) {
+      <mat-error>Email is required</mat-error>
+    }
+  </mat-form-field>
+  <section>
+  <mat-form-field appearance="outline" >
+    <mat-label>Password</mat-label>
+    <input type="password" matInput formControlName="password">
+    @if (loginForm.get('password')?.hasError('required')) {
+      <mat-error>Password is required</mat-error>
+    }
+  </mat-form-field>
+  </section>
+  <button mat-stroked-button (click)="submit()"
+          [disabled]="loginForm.invalid">Login</button>
+<section> <a mat-raised-button href="http://localhost:4200/compte" target="_blank">Se créer un compte</a></section>
+
+</form>

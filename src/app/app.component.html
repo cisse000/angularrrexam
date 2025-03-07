@@ -1,0 +1,58 @@
+<mat-toolbar> <div class="header"><img src="/93moove.png" alt="93Moove Logo" class="logo" /></div>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav [opened]="true" mode="side">
+    <mat-nav-list>
+      <mat-list-item>
+        <a routerLink="/">
+          <mat-icon>home</mat-icon>
+          <span>Accueil</span>
+        </a>
+      </mat-list-item>
+      <mat-list-item>
+        <a routerLink="/login">
+          <mat-icon>login</mat-icon>
+          <span>Login</span>
+        </a>
+      </mat-list-item>
+      <mat-list-item>
+
+
+      </mat-list-item>
+      <div [hidden]="!authenticated()">
+      <mat-list-item>
+        <a routerLink="/profil">
+          <mat-icon>Mon profil</mat-icon>
+          <span>Profil</span>
+        </a>
+      </mat-list-item>
+      </div>
+      <!--
+      <div [hidden]="!authenticated()">
+      <mat-list-item>
+        <a routerLink="/inscriptions">
+          <mat-icon>MesInscriptions</mat-icon>
+          <span>Mes Inscriptions</span>
+        </a>
+      </mat-list-item>
+      </div>
+      -->
+    </mat-nav-list>
+  </mat-sidenav>
+
+
+    <div [hidden]="!authenticated()">
+      <p>Vous êtes connecté.e</p>
+    <button mat-button (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      Se déconnecter
+    </button>
+    </div>
+
+  <footer>
+    <p>BTS SIO - Lycée Auguste Blanqui</p>
+  </footer>
+    <router-outlet></router-outlet>
+
+
+</mat-sidenav-container>

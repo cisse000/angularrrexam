@@ -1,0 +1,49 @@
+
+
+
+
+.login-btn {
+  background-color: white;
+  color: #0078d7;
+}
+
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  background-color: #005fa3;
+  color: white;
+  padding: 10px 0;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  padding: 5px 15px;
+}
+
+.nav a:hover {
+  background-color: #004a84;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.left {
+  width: 30%;
+}
+
+.right {
+  width: 65%;
+}
+
+.course-card {
+  background-color: #f5f5f5;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+

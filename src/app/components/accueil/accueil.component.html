@@ -1,0 +1,79 @@
+
+
+<nav class="nav">
+  <a mat-button routerLink="/cours">Nos cours</a>
+  <a mat-button routerLink="/apropos">À propos</a>
+  <a mat-button routerLink="/infos">Infos utiles</a>
+</nav>
+<div class="search-container">
+
+
+</div>
+<div class="content">
+  <div class="left">
+    <h2>Search</h2>
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+
+        <input type="text"
+               placeholder="Rechercher"
+               aria-label="Number"
+               matInput
+               [formControl]="myControl"
+               [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+          @for (option of filteredOptions | async; track option) {
+            <mat-option [value]="option">{{option}}</mat-option>
+          }
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
+<!--    <table mat-table [dataSource]="cours" >-->
+<!--      <ng-container matColumnDef="nom">-->
+<!--        <th mat-header-cell *matHeaderCellDef> Nom </th>-->
+<!--        <td mat-cell *matCellDef="let cours"> {{cours.nom}} </td>-->
+<!--      </ng-container>-->
+<!--      <ng-container matColumnDef="description">-->
+<!--        <th mat-header-cell *matHeaderCellDef> description </th>-->
+<!--        <td mat-cell *matCellDef="let cours"> {{ cours.style }} </td>-->
+<!--      </ng-container>-->
+
+  </div>
+  <div>
+    <p>Cours :</p>
+    <!--
+    <ul>
+      @for (cours of cours;track cours.id){
+        <li>
+          <p>{{cours.nom}}</p>
+        </li>
+      }
+    </ul>
+    -->
+    <table mat-table [dataSource]="cours" >
+      <ng-container matColumnDef="nom">
+        <th mat-header-cell *matHeaderCellDef> Nom </th>
+        <td mat-cell *matCellDef="let cours"> {{cours.nom}} </td>
+      </ng-container>
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Description </th>
+        <td mat-cell *matCellDef="let cours"> {{ cours.description }} </td>
+      </ng-container>
+      <ng-container *ngIf="authenticated()" matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let cours">
+          <a mat-button color="primary" [routerLink]="['/cours/', cours.id, 'view']">Voir</a>
+        </td>
+      </ng-container>
+      <ng-container *ngIf="!authenticated()" matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let cours">
+          <a mat-button color="primary" [routerLink]="['/cours/', cours.id, 'view']">Voir</a>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+    <img src="/tenis.png" alt="Tennis Player" />
+  </div>
