@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {ActivatedRoute, Router, RouterLink} from '@angular/router';
-import {CoursService} from '../../../services/cours.service';
-import {Cours} from '../../../models/cours.model';
+import {CoursService} from '../../../../services/cours.service';
+import {Cours} from '../../../../models/cours.model';
 @Component({
   selector: 'app-cours-view',
   standalone: true,

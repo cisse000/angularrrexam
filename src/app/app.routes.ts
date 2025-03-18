@@ -6,7 +6,7 @@ import {UserCreateComponent} from './components/user/user-create/user-create.com
 import {UserEditComponent} from './components/user/user-edit/user-edit.component';
 import {AccueilComponent} from './components/accueil/accueil.component';
 import {ProfilComponent} from './components/profil/profil.component';
-import {CoursViewComponent} from './components/accueil/cours-view/cours-view.component';
+import {CoursViewComponent} from './components/accueil/cours/cours-view/cours-view.component';
 import {InscriptionsComponent} from './components/inscription/inscriptions.component';
 
 export const routes: Routes = [

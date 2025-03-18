@@ -1,4 +1,4 @@
-export interface Tatoueur {
+export interface User {
   id: number;
   nom: string;
   style: string;

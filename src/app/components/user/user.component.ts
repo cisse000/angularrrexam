@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {TatoueurService} from '../../services/tatoueur.service';
-import {Tatoueur} from '../../models/tatoueur.model';
+import {UserService} from '../../services/user.service';
+import {User} from '../../models/user.model';
 import {AuthService} from '../../services/auth.service';
 import {RouterLink, RouterOutlet} from '@angular/router';
 import {
@@ -14,7 +14,7 @@ import {MatAnchor, MatButton} from '@angular/material/button';
 import {MatPaginator} from '@angular/material/paginator';
 import {NgIf} from '@angular/common';
 @Component({
-  selector: 'app-tatoueur',
+  selector: 'app-user',
   standalone: true,
   imports: [RouterOutlet, RouterLink, MatTable, MatColumnDef, MatHeaderCell, MatCell, MatAnchor,
     MatButton, MatHeaderRow, MatRow, MatRowDef, MatHeaderRowDef, MatCellDef, MatHeaderCellDef,
@@ -23,11 +23,11 @@ import {NgIf} from '@angular/common';
   styleUrl: './user.component.css'
 })
 export class UserComponent implements OnInit {
-//Variable de classe qui contiendra notre tableau de tatoueurs
-  tatoueurs: Tatoueur[] = [];
+//Variable de classe qui contiendra notre tableau de user
+  user: User[] = [];
   displayedColumns: string[] = ['nom', 'style'];
 
-  constructor(private auth: AuthService, private tatoueurService: TatoueurService) {
+  constructor(private auth: AuthService, private userService: UserService) {
   }
 
   authenticated() {
@@ -36,16 +36,16 @@ export class UserComponent implements OnInit {
 
 //Fonction exécutée à l'initiation du component
   ngOnInit(): void {
-//Récupère les données du tatoueurService.
-    this.tatoueurService.getTatoueurs().subscribe((data: Tatoueur[]) => {
-//Mets les données dans notre variable de classe tatoueurs
-      this.tatoueurs = data;
+//Récupère les données du userService.
+    this.userService.getUser().subscribe((data: User[]) => {
+//Mets les données dans notre variable de classe user
+      this.user = data;
     });
   }
 
-  deleteTatoueur(id: number) {
-    this.tatoueurService.delete(id).subscribe(res => {
-      this.tatoueurs = this.tatoueurs.filter(item => item.id !== id);
+  deleteUser(id: number) {
+    this.userService.delete(id).subscribe(res => {
+      this.user = this.user.filter(item => item.id !== id);
     })
   }
 }

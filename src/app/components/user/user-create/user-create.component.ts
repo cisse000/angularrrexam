@@ -4,9 +4,9 @@ import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/
 import {MatError, MatFormField, MatLabel} from '@angular/material/form-field';
 import {MatButton} from '@angular/material/button';
 import {MatInput} from '@angular/material/input';
-import {TatoueurService} from '../../../services/tatoueur.service';
+import {UserService} from '../../../services/user.service';
 @Component({
-  selector: 'app-tatoueur-create',
+  selector: 'app-user-create',
   standalone: true,
   imports: [RouterOutlet, RouterLink, ReactiveFormsModule, MatError, MatButton, MatFormField,
     MatInput, MatLabel],
@@ -15,7 +15,7 @@ import {TatoueurService} from '../../../services/tatoueur.service';
 })
 export class UserCreateComponent {
   form!: FormGroup;
-  constructor(private tatoueurService: TatoueurService, private router: Router ) { }
+  constructor(private userService: UserService, private router: Router ) { }
   ngOnInit(): void {
     this.form = new FormGroup({
       nom: new FormControl('', [Validators.required]),
@@ -23,8 +23,8 @@ export class UserCreateComponent {
     });
   }
   submit(){
-    this.tatoueurService.addTatoueur(this.form.value).subscribe((res:any) => {
-      this.router.navigate(['/tatoueur']);
+    this.userService.addUser(this.form.value).subscribe((res:any) => {
+      this.router.navigate(['/user']);
     })
   }
 }
