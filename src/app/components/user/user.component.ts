@@ -25,7 +25,7 @@ import {NgIf} from '@angular/common';
 export class UserComponent implements OnInit {
 //Variable de classe qui contiendra notre tableau de user
   user: User[] = [];
-  displayedColumns: string[] = ['nom', 'style'];
+  displayedColumns: string[] = ['username', 'email','password','quotientfamilial','salaire'];
 
   constructor(private auth: AuthService, private userService: UserService) {
   }
