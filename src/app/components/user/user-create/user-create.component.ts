@@ -19,7 +19,9 @@ export class UserCreateComponent {
   ngOnInit(): void {
     this.form = new FormGroup({
       nom: new FormControl('', [Validators.required]),
-      style: new FormControl('', Validators.required)
+      email: new FormControl('', Validators.required)
+     //ajoute les autres colonne
+
     });
   }
   submit(){

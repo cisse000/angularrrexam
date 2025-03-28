@@ -1,5 +1,5 @@
-<mat-toolbar> <div class="header"><img src="/93moove.png" alt="93Moove Logo" class="logo" /></div>
-</mat-toolbar>
+<header> <div class="header"><img src="/93moove.png" alt="93Moove Logo" class="logo" /></div>
+</header>
 <mat-sidenav-container>
   <mat-sidenav [opened]="true" mode="side">
     <mat-nav-list>
@@ -27,7 +27,12 @@
         </a>
       </mat-list-item>
       </div>
+
+
+
       <!--
+      //le code si dessous permet d'ajouter un lien
+      -->
       <div [hidden]="!authenticated()">
       <mat-list-item>
         <a routerLink="/inscriptions">
@@ -36,7 +41,11 @@
         </a>
       </mat-list-item>
       </div>
-      -->
+
+
+
+
+
     </mat-nav-list>
   </mat-sidenav>
 

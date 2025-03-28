@@ -15,6 +15,8 @@ export class CoursService {
   constructor(private http: HttpClient, private auth: AuthService) {}
 
 
+//fonction getCours : va utiliser http GET pour récupérer la liste JSON
+// //Depuis l'url de l'API.
   getCours(): Observable<Cours[]> {
     let cours = this.http.get<Cours[]>(this.apiUrl);
     return cours;
@@ -23,5 +25,20 @@ export class CoursService {
   findById(id: number): Observable<any> {
     return this.http.get(this.apiUrl + '/' + id)
   }
+
+  addCours(cours: Cours): Observable<any> {
+    return this.http.post(this.apiUrl, JSON.stringify(cours), {headers: this.auth.headers});
+  }
+
+
+  update(id: number, cours: Cours): Observable<any> {
+    return this.http.put(this.apiUrl + '/' + id, JSON.stringify(cours), {headers: this.auth.headers})
+  }
+
+  delete(id: number) {
+    return this.http.delete(this.apiUrl + '/' + id, {headers: this.auth.headers})
+  }
+
+
 
 }

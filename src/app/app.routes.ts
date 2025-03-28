@@ -8,12 +8,14 @@ import {AccueilComponent} from './components/accueil/accueil.component';
 import {ProfilComponent} from './components/profil/profil.component';
 import {CoursViewComponent} from './components/accueil/cours/cours-view/cours-view.component';
 import {InscriptionsComponent} from './components/inscription/inscriptions.component';
+import {CoursEditComponent} from './components/accueil/cours/cours-edit/cours-edit.component';
+import {CoursCreateComponent} from './components/accueil/cours/cours-create/cours-create.component';
 
 export const routes: Routes = [
   { path: '', component: AccueilComponent },
   {
     path: 'user',
-    title: 'Nos tatoueurs',
+    title: 'Nos user',
     component: UserComponent,
   },
   {
@@ -49,4 +51,18 @@ export const routes: Routes = [
     title: 'Mes inscriptions',
     component: InscriptionsComponent,
   },
+
+  {
+    path: 'cours/:coursId/edit',
+    component: CoursEditComponent
+  },
+
+  {
+    path: 'cours/:coursId/create',
+    component: CoursCreateComponent
+  },
+
+
+
+
 ];

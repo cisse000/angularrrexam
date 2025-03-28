@@ -22,12 +22,15 @@ export class UserEditComponent {
   constructor(private userService: UserService, private route: ActivatedRoute, private router:
   Router ) { }
   ngOnInit():void {
-    this.id = this.route.snapshot.params['userId'];
+    this.id = this.route.snapshot.params['user'];
     this.userService.findById(this.id).subscribe((data: User)=>{
       this.user = data;
       this.form = new FormGroup({
-        nom: new FormControl(this.user.nom, [Validators.required]),
-        style: new FormControl(this.user.style, Validators.required)
+        nom: new FormControl(this.user.username, [Validators.required]),
+        email: new FormControl(this.user.email, Validators.required) ,
+        password: new FormControl(this.user.password, Validators.required) ,
+        quotientfamilial: new FormControl(this.user.quotientfamilial, Validators.required) ,
+        salaire: new FormControl(this.user.salaire, Validators.required) ,
       });
     });
   }

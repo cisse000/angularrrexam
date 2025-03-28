@@ -1,5 +1,9 @@
 export interface User {
   id: number;
-  nom: string;
-  style: string;
+  username: string;
+  email: string;
+  password: string;
+  quotientfamilial: string;
+  salaire: string;
+
 }
